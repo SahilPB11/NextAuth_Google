@@ -1,11 +1,14 @@
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 
-export default async function Home() {
+import React from "react";
+
+
+const DashBoard = async () => {
   const session = await getServerSession();
 
   if (!session) {
-    redirect("/login");
+    redirect("/");
   }
 
   return (
@@ -17,4 +20,6 @@ export default async function Home() {
       </div>
     </div>
   );
-}
+};
+
+export default DashBoard;
